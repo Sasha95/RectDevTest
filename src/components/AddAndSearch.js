@@ -41,6 +41,7 @@ class AddAndSerach extends Component {
             ref={input => {
               this.userName = input;
             }}
+            type="email"
             placeholder="Name"
           />
           <DayPickerInput

@@ -1,8 +1,8 @@
 {
-  "name": "reactdevtest",
+  "name": "RectDevTest",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sasha95.github.io/reactdevtest/",
+  "homepage": "https://Sasha95.github.io/RectDevTest/",
   "devDependencies": {
     "react-scripts": "0.6.1"
   },

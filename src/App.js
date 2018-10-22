@@ -14,7 +14,7 @@ class App extends PureComponent {
   render() {
     return (
       <div>
-        <Route exact path="/RectDevTest" component={UserName} />
+        <Route exact path="/RectDevTest/" component={UserName} />
         <Route exact path="/SpokenLanguages" component={SpokenLanguages} />
         <Route exact path="/Email" component={Email} />
         <Route exact path="/Birthday" component={Birthday} />

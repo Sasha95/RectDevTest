@@ -54,19 +54,11 @@ class UserName extends Component {
               placeholder="email"
               required
               onChange={this.handleChange}
-<<<<<<< HEAD
-=======
-              // className="form-control"
->>>>>>> b564ad591f70ce18ce78eca60923f30f82726e08
             />
           </div>
         </FormWithConstraints>
         <div className=" row justify-content-center title pt-5 mt-5">
-<<<<<<< HEAD
           <Link to={"/RectDevTest/Birthday"}>
-=======
-          <Link to={"/Birthday"}>
->>>>>>> b564ad591f70ce18ce78eca60923f30f82726e08
             <button className="btn" disabled={this.props.ButtonState}>
               >
             </button>

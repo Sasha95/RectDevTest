@@ -29,19 +29,11 @@ class UserName extends Component {
           What is your B.D.
         </div>
         <div className="row justify-content-center pb-5  mb-5">
-<<<<<<< HEAD
-=======
-          {/* <input onChange={this.SelectData} type="date" defaultValue="" /> */}
->>>>>>> b564ad591f70ce18ce78eca60923f30f82726e08
           <Calendar onChange={this.onChange} value={this.state.date} />
         </div>
 
         <div className="row justify-content-center title pt-5">
-<<<<<<< HEAD
           <Link to={"/RectDevTest/Workspace/Info"}>
-=======
-          <Link to={"/Workspace/Info"}>
->>>>>>> b564ad591f70ce18ce78eca60923f30f82726e08
             <button className="btn" disabled={this.props.ButtonState}>
               >
             </button>

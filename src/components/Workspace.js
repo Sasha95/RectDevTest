@@ -17,29 +17,17 @@ class Workspace extends Component {
           >
             <div className="sidebar-sticky">
               <ul className="nav flex-column ">
-<<<<<<< HEAD
                 <Link to={"/RectDevTest"}>
-=======
-                <Link to={"/"}>
->>>>>>> b564ad591f70ce18ce78eca60923f30f82726e08
                   <li className="menu h4 nav-item py-4 d-flex justify-content-center">
                     Home
                   </li>
                 </Link>
-<<<<<<< HEAD
                 <Link to={"/RectDevTest/Workspace/Info"}>
-=======
-                <Link to={"/Workspace/Info"}>
->>>>>>> b564ad591f70ce18ce78eca60923f30f82726e08
                   <li className="menu h4 nav-item py-4  d-flex justify-content-center">
                     Info
                   </li>
                 </Link>
-<<<<<<< HEAD
                 <Link to={"/RectDevTest/Workspace/List"}>
-=======
-                <Link to={"/Workspace/List"}>
->>>>>>> b564ad591f70ce18ce78eca60923f30f82726e08
                   <li className="menu h4 nav-item py-4  d-flex justify-content-center">
                     List
                   </li>
@@ -52,7 +40,6 @@ class Workspace extends Component {
               Hato
             </div>
             <Switch>
-<<<<<<< HEAD
               <Route
                 exact
                 path="/RectDevTest/Workspace/List"
@@ -63,10 +50,6 @@ class Workspace extends Component {
                 path="/RectDevTest/Workspace/Info"
                 component={Languages}
               />
-=======
-              <Route exact path="/Workspace/List" component={AddAndSearch} />
-              <Route exact path="/Workspace/Info" component={Languages} />
->>>>>>> b564ad591f70ce18ce78eca60923f30f82726e08
             </Switch>
           </main>
         </div>

@@ -15,6 +15,7 @@ class App extends PureComponent {
     return (
       <div>
         <Route exact path="/RectDevTest/" component={UserName} />
+<<<<<<< HEAD
         <Route
           exact
           path="/RectDevTest/SpokenLanguages"
@@ -23,6 +24,11 @@ class App extends PureComponent {
         <Route exact path="/RectDevTest/Email" component={Email} />
         <Route exact path="/RectDevTest/Birthday" component={Birthday} />
 
+=======
+        <Route exact path="/RectDevTest/SpokenLanguages" component={SpokenLanguages} />
+        <Route exact path="/RectDevTest/Email" component={Email} />
+        <Route exact path="/RectDevTest/Birthday" component={Birthday} />
+>>>>>>> b564ad591f70ce18ce78eca60923f30f82726e08
         <I18nextProvider i18n={i18n}>
           <Route path="/RectDevTest/Workspace" component={Workspace} />
         </I18nextProvider>

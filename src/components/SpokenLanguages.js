@@ -60,6 +60,10 @@ class SpokenLanguages extends Component {
         this.setStatus();
       });
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b564ad591f70ce18ce78eca60923f30f82726e08
     const selectedBtns = [...this.state.selectedBtn];
     const indexBtn = selectedBtns.indexOf(event.target.id);
     if (indexBtn === -1) {
@@ -110,7 +114,11 @@ class SpokenLanguages extends Component {
                     ? "gray"
                     : ""
               }}
+<<<<<<< HEAD
               value={x.name}
+=======
+              value={x.nme}
+>>>>>>> b564ad591f70ce18ce78eca60923f30f82726e08
               onClick={this.onCheck}
             >
               {x.name}
@@ -118,7 +126,11 @@ class SpokenLanguages extends Component {
           ))}
         </div>
         <div className="row justify-content-center title pt-5 mt-5">
+<<<<<<< HEAD
           <Link to={"/RectDevTest/Email"}>
+=======
+          <Link to={"/Email"}>
+>>>>>>> b564ad591f70ce18ce78eca60923f30f82726e08
             <button className="btn" disabled={this.props.ButtonState}>
               >
             </button>

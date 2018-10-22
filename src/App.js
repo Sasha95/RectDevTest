@@ -15,12 +15,16 @@ class App extends PureComponent {
     return (
       <div>
         <Route exact path="/RectDevTest/" component={UserName} />
-        <Route exact path="/SpokenLanguages" component={SpokenLanguages} />
-        <Route exact path="/Email" component={Email} />
-        <Route exact path="/Birthday" component={Birthday} />
+        <Route
+          exact
+          path="/RectDevTest/SpokenLanguages"
+          component={SpokenLanguages}
+        />
+        <Route exact path="/RectDevTest/Email" component={Email} />
+        <Route exact path="/RectDevTest/Birthday" component={Birthday} />
 
         <I18nextProvider i18n={i18n}>
-          <Route path="/Workspace" component={Workspace} />
+          <Route path="/RectDevTest/Workspace" component={Workspace} />
         </I18nextProvider>
       </div>
     );

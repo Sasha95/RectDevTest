@@ -30,7 +30,7 @@ class UserName extends Component {
         </div>
         <br />
         <div className="row justify-content-center">
-          <Link to={"/SpokenLanguages"}>
+          <Link to={"/RectDevTest/SpokenLanguages"}>
             <button className="btn" disabled={this.props.ButtonState}>
               >
             </button>
@@ -51,4 +51,3 @@ export default connect(
     }
   })
 )(UserName);
-

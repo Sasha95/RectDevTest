@@ -118,7 +118,7 @@ class SpokenLanguages extends Component {
           ))}
         </div>
         <div className="row justify-content-center title pt-5 mt-5">
-          <Link to={"/Email"}>
+          <Link to={"/RectDevTest/Email"}>
             <button className="btn" disabled={this.props.ButtonState}>
               >
             </button>

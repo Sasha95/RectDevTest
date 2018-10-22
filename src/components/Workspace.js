@@ -22,12 +22,12 @@ class Workspace extends Component {
                     Home
                   </li>
                 </Link>
-                <Link to={"/Workspace/Info"}>
+                <Link to={"/RectDevTest/Workspace/Info"}>
                   <li className="menu h4 nav-item py-4  d-flex justify-content-center">
                     Info
                   </li>
                 </Link>
-                <Link to={"/Workspace/List"}>
+                <Link to={"/RectDevTest/Workspace/List"}>
                   <li className="menu h4 nav-item py-4  d-flex justify-content-center">
                     List
                   </li>
@@ -40,8 +40,16 @@ class Workspace extends Component {
               Hato
             </div>
             <Switch>
-              <Route exact path="/Workspace/List" component={AddAndSearch} />
-              <Route exact path="/Workspace/Info" component={Languages} />
+              <Route
+                exact
+                path="/RectDevTest/Workspace/List"
+                component={AddAndSearch}
+              />
+              <Route
+                exact
+                path="/RectDevTest/Workspace/Info"
+                component={Languages}
+              />
             </Switch>
           </main>
         </div>

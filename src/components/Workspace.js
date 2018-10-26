@@ -25,18 +25,10 @@ class Workspace extends Component {
     super(props);
     this.state = {
       isList: false,
-      selectedItem: this.props.location.pathname.includes("List")
-        ? false
-        : true,
+
       changeColor: false
     };
   }
-
-  selectMenu = () => {
-    this.setState({
-      selectedItem: !this.state.selectedItem
-    });
-  };
 
   onMouseEnterHandler = () => {
     this.setState({
@@ -71,9 +63,10 @@ class Workspace extends Component {
                 </li>
                 <Link to={"/RectDevTest/Workspace/Info"}>
                   <li
-                    onClick={this.selectMenu}
                     className={`nav-item d-flex justify-content-center ${
-                      this.state.selectedItem ? "menu" : ""
+                      this.props.location.pathname.indexOf("List") === -1
+                        ? "menu"
+                        : ""
                     }`}
                     style={{
                       padding: "20px 26px 20px 26px",
@@ -81,13 +74,23 @@ class Workspace extends Component {
                     }}
                   >
                     <ReactSVG
-                      src={!this.state.selectedItem ? house : house1}
+                      src={
+                        this.props.location.pathname.indexOf("List") !== -1
+                          ? house
+                          : house1
+                      }
                       evalScripts="always"
                       renumerateIRIElements={false}
                       svgClassName="svg-class-name"
                       svgStyle={{
-                        width: !this.state.selectedItem ? 22 : 30,
-                        height: !this.state.selectedItem ? 22 : 30
+                        width:
+                          this.props.location.pathname.indexOf("List") !== -1
+                            ? 22
+                            : 30,
+                        height:
+                          this.props.location.pathname.indexOf("List") !== -1
+                            ? 22
+                            : 30
                       }}
                       className="wrapper-class-name"
                     />
@@ -95,20 +98,31 @@ class Workspace extends Component {
                 </Link>
                 <Link to={"/RectDevTest/Workspace/List"}>
                   <li
-                    onClick={this.selectMenu}
                     className={`nav-item d-flex justify-content-center ${
-                      !this.state.selectedItem ? "menu" : ""
+                      this.props.location.pathname.indexOf("Info") === -1
+                        ? "menu"
+                        : ""
                     }`}
                     style={{ padding: "20px 26px 20px 26px" }}
                   >
                     <ReactSVG
-                      src={this.state.selectedItem ? list : list1}
+                      src={
+                        this.props.location.pathname.indexOf("Info") !== -1
+                          ? list
+                          : list1
+                      }
                       evalScripts="always"
                       renumerateIRIElements={false}
                       svgClassName="svg-class-name"
                       svgStyle={{
-                        width: this.state.selectedItem ? 22 : 30,
-                        height: this.state.selectedItem ? 22 : 30
+                        width:
+                          this.props.location.pathname.indexOf("Info") !== -1
+                            ? 22
+                            : 30,
+                        height:
+                          this.props.location.pathname.indexOf("Info") !== -1
+                            ? 22
+                            : 30
                       }}
                       className="wrapper-class-name"
                     />

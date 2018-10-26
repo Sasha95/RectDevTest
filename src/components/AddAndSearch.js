@@ -1,12 +1,25 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import DayPickerInput from "react-day-picker/DayPickerInput";
 import "react-day-picker/lib/style.css";
 import moment from "moment";
+import { search } from "../service/searchUser";
+import { userInfo } from "../service/userInfo";
+import { deleteUser } from "../service/deleteUser";
+import { sortData } from "../service/sortUser";
+import styled from "styled-components";
+
+const Th = styled.th`
+  font-size: 16px;
+  color: white;
+  padding-top: 8px;
+  padding-bottom: 7px;
+`;
 
 class AddAndSerach extends Component {
   state = {
-    date: moment(new Date()).format("DD.MM.YYYY")
+    date: moment(new Date()).format("DD.MM.YYYY"),
+    data: [],
+    timeData: [],
+    sort: true
   };
   addUser = () => {
     this.props.onAddUser(this.userName.value, this.state.date);
@@ -14,85 +27,135 @@ class AddAndSerach extends Component {
     this.userDate.value = "";
   };
 
-  findUser = () => {
-    this.props.onFindUser(this.searchInput.value);
-  };
-
   handleDayChange = dayPickerInput => {
     this.setState({
       date: moment(dayPickerInput).format("DD.MM.YYYY")
     });
   };
+
+  componentDidMount() {
+    this.getFromLocalStor();
+  }
+
+  getFromLocalStor = () => {
+    const rez = userInfo();
+    this.setState({
+      data: rez,
+      timeData: rez
+    });
+  };
+
+  searchUser = () => {
+    this.setState({
+      timeData: search(this.state.data, this.search.value)
+    });
+  };
+
+  DeleteUser = e => {
+    deleteUser(e.target.id);
+    this.getFromLocalStor();
+  };
+
+  sort = e => {
+    this.setState({
+      sort: !this.state.sort
+    });
+
+    this.setState({
+      timeData: sortData(this.state.timeData, e.target.id, this.state.sort)
+    });
+  };
+
   render() {
     return (
-      <div className="m-4">
-        <div className="h3">Filter:</div>
-        <input
-          onChange={this.findUser}
-          ref={input => {
-            this.searchInput = input;
-          }}
-          placeholder="input name or data"
-        />
-        <div className="pt-3">
-          <div className="h3">Add user:</div>
-          <input
-            className="mr-2 mb-4"
-            ref={input => {
-              this.userName = input;
-            }}
-            type="email"
-            placeholder="Name"
-          />
-          <DayPickerInput
-            ref={DayPickerInput => {
-              this.userDate = DayPickerInput;
-            }}
-            className="piker"
-            placeholder={this.state.date}
-            format="DD.MM.YYYY"
-            onDayChange={this.handleDayChange}
-          />
+      <div
+        className="row"
+        style={{
+          marginLeft: "126px",
+          paddingTop: "35px",
+          paddingRight: "72px"
+        }}
+      >
+        <div className="card w-100">
+          <div className="card-body px-5">
+            <div className="search">
+              <span className="fa fa-search" />
+              <input
+                placeholder="Search…"
+                onChange={this.searchUser}
+                ref={input => {
+                  this.search = input;
+                }}
+              />
+            </div>
 
-          <div>
-            <button className="btn btn-secondary" onClick={this.addUser}>
-              Add User
-            </button>
+            <table className="table  table-sm table-striped ">
+              <thead style={{ backgroundColor: "#0086F8" }}>
+                <tr>
+                  <Th className="pl-5" scope="col">
+                    ID
+                  </Th>
+                  <Th
+                    className="clicktit"
+                    onClick={this.sort}
+                    id="name"
+                    scope="col"
+                  >
+                    Name
+                  </Th>
+                  <Th scope="col">Email</Th>
+                  <Th
+                    className="clicktit"
+                    onClick={this.sort}
+                    id="phone"
+                    scope="col"
+                  >
+                    Phone Number
+                  </Th>
+                  <Th
+                    className="clicktit"
+                    onClick={this.sort}
+                    id="birth"
+                    scope="col"
+                  >
+                    Date of birth
+                  </Th>
+                  <Th
+                    className="clicktit"
+                    onClick={this.sort}
+                    id="languages"
+                    scope="col"
+                  >
+                    Languages
+                  </Th>
+                  <th scope="col" />
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.timeData.map((x, index) => (
+                  <tr key={index}>
+                    <td className="pl-5">{x.id}</td>
+                    <td onClick={this.sort}>{x.name}</td>
+                    <td>{x.email}</td>
+                    <td>{x.phone}</td>
+                    <td>{x.birth}</td>
+                    <td>{x.languages}</td>
+                    <td
+                      className="pl-5 deleteBtn"
+                      id={x.id}
+                      onClick={this.DeleteUser}
+                    >
+                      Delete
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
-        <div className="h3 mt-5">List users:</div>
-        {this.props.users.map((x, index) => (
-          <ul key={index}>
-            <li className="h4">
-              Name:&nbsp;
-              <b>{x.name}</b> &nbsp;&nbsp; B.D.:&nbsp;
-              <b>{x.date}</b>
-            </li>
-          </ul>
-        ))}
       </div>
     );
   }
 }
 
-export default connect(
-  state => ({
-    users: state.users.filter(
-      user =>
-        user.name.includes(state.filterUser) ||
-        user.date.includes(state.filterUser)
-    )
-  }),
-  dispatch => ({
-    onAddUser: (name, date) => {
-      const payload = {
-        name,
-        date
-      };
-      dispatch({ type: "ADD_USER", payload });
-    },
-    onFindUser: name => {
-      dispatch({ type: "FILTER_USER", payload: name });
-    }
-  })
-)(AddAndSerach);
+export default AddAndSerach;

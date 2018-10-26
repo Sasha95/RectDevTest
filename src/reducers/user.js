@@ -1,10 +1,11 @@
-const initialState = [];
+const initialState = {
+  name: ""
+};
 
-export default function onAddUser(state = initialState, action) {
-  if (action.type === "ADD_USER") {
-    return [...state, action.payload];
-  } else if (action.type === "DELETE_USER") {
-    return state;
+export default function userName(state = initialState, action) {
+  if (action.type === "USER_NAME") {
+    return action.payload;
   }
+
   return state;
 }

@@ -6,14 +6,13 @@ import SpokenLanguages from "./components/SpokenLanguages";
 import Email from "./components/Email";
 import Birthday from "./components/Birthday";
 import Workspace from "./components/Workspace";
+import PhoneNumber from "./components/PhoneNumber";
 import { Route } from "react-router-dom";
-import { I18nextProvider } from "react-i18next";
-import i18n from "./i18n";
 
 class App extends PureComponent {
   render() {
     return (
-      <div>
+      <>
         <Route exact path="/RectDevTest/" component={UserName} />
         <Route
           exact
@@ -22,11 +21,10 @@ class App extends PureComponent {
         />
         <Route exact path="/RectDevTest/Email" component={Email} />
         <Route exact path="/RectDevTest/Birthday" component={Birthday} />
+        <Route exact path="/RectDevTest/PhoneNumber" component={PhoneNumber} />
 
-        <I18nextProvider i18n={i18n}>
-          <Route path="/RectDevTest/Workspace" component={Workspace} />
-        </I18nextProvider>
-      </div>
+        <Route path="/RectDevTest/Workspace" component={Workspace} />
+      </>
     );
   }
 }

@@ -7,18 +7,35 @@ import {
 } from "react-form-with-constraints";
 import { Link } from "react-router-dom";
 
-class UserName extends Component {
+class Email extends Component {
+  state = {
+    ValidT: false,
+    ValidB: false
+  };
   handleChange = e => {
     this.form.validateFields(e.target);
   };
   contactSubmit = e => {
     e.preventDefault();
-
     this.form.validateFields();
-
+    if (e.target.value.length > 0) {
+      this.setState({
+        ValidT: true
+      });
+    } else {
+      this.setState({
+        ValidT: false
+      });
+    }
     if (!this.form.isValid()) {
+      this.setState({
+        ValidB: true
+      });
       this.props.changeState(true);
     } else {
+      this.setState({
+        ValidB: false
+      });
       this.props.changeState(false);
     }
   };
@@ -29,40 +46,54 @@ class UserName extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row justify-content-center title pb-5">Email?</div>
-        <FormWithConstraints
-          ref={form => (this.form = form)}
-          onChange={this.contactSubmit}
-          noValidate
-        >
-          <div className="row justify-content-center">
-            <FieldFeedbacks onChange={this.val} for="email">
-              <FieldFeedback
-                style={{ color: "red", position: "absolute" }}
-                when="*"
+      <div className="container p-0 tit">
+        <div className="title">HATO</div>
+        <div className="formInp">
+          <p className="subtext m-0">What is your email?</p>
+          <FormWithConstraints
+            ref={form => (this.form = form)}
+            onChange={this.contactSubmit}
+            noValidate
+          >
+            <div className="inputWithIcon row justify-content-center mx-0">
+              <input
+                className={this.state.ValidT ? "change" : ""}
+                style={{ border: this.state.ValidB ? "solid 1px #D96A17" : "" }}
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                ref={input => {
+                  this.userEmail = input;
+                }}
+                onChange={this.handleChange}
+              />
+              <i className="fa fa-envelope fa-lg fa-fw" aria-hidden="true" />
+            </div>
+            <div className="row mx-0" style={{ paddingLeft: "75px" }}>
+              <FieldFeedbacks onChange={this.val} for="email">
+                <FieldFeedback
+                  style={{ color: "#D96A17", position: "absolute" }}
+                  when="*"
+                >
+                  This is not an email
+                </FieldFeedback>
+              </FieldFeedbacks>
+            </div>
+          </FormWithConstraints>
+          <div className="row justify-content-center mx-0">
+            <Link to={"/RectDevTest/PhoneNumber"}>
+              <button
+                onClick={() => {
+                  this.props.userMail(this.userEmail.value);
+                }}
+                className="btn"
+                disabled={this.props.ButtonState}
               >
-                This is not an email
-              </FieldFeedback>
-            </FieldFeedbacks>
+                Next
+              </button>
+            </Link>
           </div>
-          <br />
-          <div className="row justify-content-center pb-5">
-            <input
-              type="email"
-              name="email"
-              placeholder="email"
-              required
-              onChange={this.handleChange}
-            />
-          </div>
-        </FormWithConstraints>
-        <div className=" row justify-content-center title pt-5 mt-5">
-          <Link to={"/RectDevTest/Birthday"}>
-            <button className="btn" disabled={this.props.ButtonState}>
-              >
-            </button>
-          </Link>
         </div>
       </div>
     );
@@ -76,6 +107,9 @@ export default connect(
   dispatch => ({
     changeState: enable => {
       dispatch({ type: "STATUS_BUTTON", payload: enable });
+    },
+    userMail: email => {
+      dispatch({ type: "USER_EMAIL", payload: email });
     }
   })
-)(UserName);
+)(Email);

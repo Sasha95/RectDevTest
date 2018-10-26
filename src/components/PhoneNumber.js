@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-class UserName extends Component {
+class PhoneNumber extends Component {
   state = {
     textChange: false
   };
@@ -13,14 +13,11 @@ class UserName extends Component {
       this.setState({
         textChange: true
       });
+      this.props.changeState(false);
     } else {
       this.setState({
         textChange: false
       });
-    }
-    if (name.length > 2) {
-      this.props.changeState(false);
-    } else {
       this.props.changeState(true);
     }
   };
@@ -34,26 +31,28 @@ class UserName extends Component {
       <div className="container p-0 tit">
         <div className="title">HATO</div>
         <div className="formInp">
-          <p className="subtext m-0">What is your name?</p>
+          <p className="subtext m-0">What is your phone number?</p>
 
           <div className="inputWithIcon row justify-content-center mx-0">
-            <input
-              className={this.state.textChange ? "change" : ""}
-              onChange={this.validation}
-              type="text"
-              placeholder="Name"
-              ref={input => {
-                this.userName = input;
-              }}
-            />
-            <i className="fa fa-user fa-lg fa-fw" aria-hidden="true" />
+            <form>
+              <input
+                className={this.state.textChange ? "change" : ""}
+                onChange={this.validation}
+                placeholder="Phone Number"
+                type="number"
+                ref={input => {
+                  this.userPhone = input;
+                }}
+              />
+              <i className="fa fa-phone fa-lg fa-fw" aria-hidden="true" />
+            </form>
           </div>
 
           <div className="row justify-content-center">
-            <Link to={"/RectDevTest/SpokenLanguages"}>
+            <Link to={"/RectDevTest/Birthday"}>
               <button
                 onClick={() => {
-                  this.props.NameOfUser(this.userName.value);
+                  this.props.userPhone(this.userPhone.value);
                 }}
                 className="btn"
                 disabled={this.props.ButtonState}
@@ -76,8 +75,8 @@ export default connect(
     changeState: enable => {
       dispatch({ type: "STATUS_BUTTON", payload: enable });
     },
-    NameOfUser: name => {
-      dispatch({ type: "USER_NAME", payload: name });
+    userPhone: phone => {
+      dispatch({ type: "USER_PHONE", payload: phone });
     }
   })
-)(UserName);
+)(PhoneNumber);

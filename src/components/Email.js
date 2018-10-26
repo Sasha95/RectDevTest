@@ -73,7 +73,11 @@ class Email extends Component {
             <div className="row mx-0" style={{ paddingLeft: "75px" }}>
               <FieldFeedbacks onChange={this.val} for="email">
                 <FieldFeedback
-                  style={{ color: "#D96A17", position: "absolute" }}
+                  style={{
+                    color: "#D96A17",
+                    position: "absolute",
+                    marginTop: "-42px"
+                  }}
                   when="*"
                 >
                   This is not an email

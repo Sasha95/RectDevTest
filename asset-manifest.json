@@ -1,7 +1,7 @@
 {
   "main.css": "/RectDevTest/static/css/main.1e1f59c3.chunk.css",
-  "main.js": "/RectDevTest/static/js/main.60d30610.chunk.js",
-  "main.js.map": "/RectDevTest/static/js/main.60d30610.chunk.js.map",
+  "main.js": "/RectDevTest/static/js/main.45a436cc.chunk.js",
+  "main.js.map": "/RectDevTest/static/js/main.45a436cc.chunk.js.map",
   "static/css/1.734125cf.chunk.css": "/RectDevTest/static/css/1.734125cf.chunk.css",
   "static/js/1.0e3a0873.chunk.js": "/RectDevTest/static/js/1.0e3a0873.chunk.js",
   "static/js/1.0e3a0873.chunk.js.map": "/RectDevTest/static/js/1.0e3a0873.chunk.js.map",
@@ -13,9 +13,9 @@
   "static/media/plus-button.svg": "/RectDevTest/static/media/plus-button.32743245.svg",
   "static/media/plus-buttonB.svg": "/RectDevTest/static/media/plus-buttonB.29e41544.svg",
   "static/media/list.svg": "/RectDevTest/static/media/list.f0db5cd3.svg",
-  "static/css/1.734125cf.chunk.css.map": "/RectDevTest/static/css/1.734125cf.chunk.css.map",
   "static/css/main.1e1f59c3.chunk.css.map": "/RectDevTest/static/css/main.1e1f59c3.chunk.css.map",
+  "static/css/1.734125cf.chunk.css.map": "/RectDevTest/static/css/1.734125cf.chunk.css.map",
   "index.html": "/RectDevTest/index.html",
-  "precache-manifest.f5fae1785630f2a9ea5e7e7cbec7c8c4.js": "/RectDevTest/precache-manifest.f5fae1785630f2a9ea5e7e7cbec7c8c4.js",
+  "precache-manifest.e7bdae7004817708f3632c717b6af9ad.js": "/RectDevTest/precache-manifest.e7bdae7004817708f3632c717b6af9ad.js",
   "service-worker.js": "/RectDevTest/service-worker.js"
 }

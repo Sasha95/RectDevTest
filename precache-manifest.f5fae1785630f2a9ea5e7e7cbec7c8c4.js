@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/RectDevTest/static/media/list.f0db5cd3.svg"
   },
   {
-    "revision": "76024bd5ee26068d1819",
+    "revision": "60d306104a564b138324",
     "url": "/RectDevTest/static/css/main.1e1f59c3.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/RectDevTest/static/media/house-black-silhouette-without-door.2855eb43.svg"
   },
   {
-    "revision": "76024bd5ee26068d1819",
-    "url": "/RectDevTest/static/js/main.76024bd5.chunk.js"
+    "revision": "60d306104a564b138324",
+    "url": "/RectDevTest/static/js/main.60d30610.chunk.js"
   },
   {
     "revision": "5debbfba154661ee8229604b738d9b4f",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/RectDevTest/static/css/1.734125cf.chunk.css"
   },
   {
-    "revision": "a3e0ecd8fd9cbf17252a54f3e6094a54",
+    "revision": "e72f733d24fb65efcbf1170239b81698",
     "url": "/RectDevTest/index.html"
   }
 ];
